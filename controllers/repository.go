@@ -33,7 +33,7 @@ func (obj *RepositoryController) Put() {
 		initWay = append(initWay, fmt.Sprintf("git remote add origin git@%s:%s/%s.git", models.ExternalIp, conf.CodeDir, name))
 		initWay = append(initWay, "git add *")
 		initWay = append(initWay, "git commit -m 'update first'")
-		initWay = append(initWay, "git push --set-upstream-to=")
+		initWay = append(initWay, "git push --set-upstream origin master")
 		obj.Data["json"] = models.Status(0, "添加成功", "git init\n")
 	}
 	obj.ServeJSON()
