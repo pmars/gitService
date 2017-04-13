@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"io/ioutil"
+	"strings"
 )
 
 var ExternalIp = ""
@@ -22,7 +23,7 @@ func GetExternal() string {
 	}
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	return string(body)
+	return strings.TrimSpace(string(body))
 }
 
 type Result struct {
