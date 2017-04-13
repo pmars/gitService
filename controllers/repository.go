@@ -34,7 +34,7 @@ func (obj *RepositoryController) Put() {
 		initWay = append(initWay, "git add *")
 		initWay = append(initWay, "git commit -m 'update first'")
 		initWay = append(initWay, "git push --set-upstream origin master")
-		obj.Data["json"] = models.Status(0, "添加成功", "git init\n")
+		obj.Data["json"] = models.Status(0, "添加成功", initWay)
 	}
 	obj.ServeJSON()
 }
